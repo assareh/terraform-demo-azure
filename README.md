@@ -31,9 +31,9 @@
 
 ## Completed Code
 ```
-module "azure-vm" {
-  source  = "app.terraform.io/hashidemos/vm/azure"
-  version = "0.0.1"
+module "appservice" {
+  source  = "app.terraform.io/hashidemos/appservice/azurerm"
+  version = "0.0.6"
 
   app_name    = "ninjas-skunkworks-nginx"
   description = "a skunkworks project"
@@ -43,7 +43,5 @@ module "azure-vm" {
 
 variable "environment" {}
 
-output "name" { value = module.azure-vm.name }
-output "http_ip" { value = module.azure-vm.http_addr }
-output "ssh_ip" { value = module.azure-vm.ssh_addr }
+output "http_addr" { value = module.appservice.azure-appsvc-address }
 ```
